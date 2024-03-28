@@ -3,7 +3,7 @@
 
 # Start from the base MySQL Docker image
 FROM mysql/mysql-server:8.0.32
-
+COPY config/user.cnf /etc/mysql/my.cnf
 # Run MySQL daemon in the background
 CMD ["mysqld", "--daemonize"]
 
