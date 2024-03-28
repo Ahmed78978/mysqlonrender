@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Start MySQL service
-systemctl start mysql
+/usr/sbin/mysqld &
 # Wait for MySQL service to start
 sleep 10
 
