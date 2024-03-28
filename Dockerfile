@@ -7,11 +7,12 @@ FROM mysql/mysql-server:8.0.32
 # Copy the custom MySQL configuration file
 COPY config/user.cnf /etc/mysql-new/my.cnf
 
-# Copy the SQL initialization script into the container
-COPY init.sql /docker-entrypoint-initdb.d/init.sql
+# Run SQL command to rename the existing user table to user_old
+RUN service mysql start && \
+    mysql -u root -p"$MYSQL_ROOT_PASSWORD" -e "RENAME TABLE mysql.user TO mysql.user_old;"
 
-# Make sure the script has executable permissions
-RUN chmod +x /docker-entrypoint-initdb.d/init.sql
+# Start the MySQL server
+CMD ["mysqld"]
 
 
 
