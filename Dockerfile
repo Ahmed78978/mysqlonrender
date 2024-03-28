@@ -4,7 +4,7 @@
 FROM mysql/mysql-server:8.0.32 AS temporary
 
 # Command to rename redo log files
-RUN mv /var/lib/mysql/#innodb_redo/redo* /var/lib/mysql/#innodb_redo/redo_backup
+RUN mv /var/lib/mysql/#innodb_redo/redo* /var/lib/mysql/
 
 FROM mysql/mysql-server:8.0.32
 
