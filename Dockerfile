@@ -4,15 +4,17 @@
 # Start from the base MySQL Docker image
 FROM mysql/mysql-server:8.0.32
 
-# Copy the custom MySQL configuration file
-COPY config/user.cnf /etc/mysql-new/my.cnf
+# Run MySQL daemon in the background
+CMD ["mysqld", "--daemonize"]
+
+# Sleep for a few seconds to allow MySQL to start
+RUN sleep 5
 
 # Run SQL command to rename the existing user table to user_old
-RUN service mysql start && \
-    mysql -u root -p"$MYSQL_ROOT_PASSWORD" -e "RENAME TABLE mysql.user TO mysql.user_old;"
+RUN mysql -u root -p"$MYSQL_ROOT_PASSWORD" -e "RENAME TABLE mysql.user TO mysql.user_old;"
 
-# Start the MySQL server
-CMD ["mysqld"]
+# Stop MySQL daemon
+RUN mysqladmin -u root -p"$MYSQL_ROOT_PASSWORD" shutdown
 
 
 
