@@ -3,6 +3,12 @@
 FROM mysql/mysql-server:8.0.32
 
 COPY config/user.cnf /etc/mysql/my.cnf
+RUN sudo mkdir -p /var/lib/mysql/backups
+
+CMD mysqldump -h "$MYSQL_HOST" -u "$MYSQL_USER" --password="$MYSQL_PASSWORD" \
+    --single-transaction \
+    --result-file=/var/lib/mysql/backups/backup.$(date +%F.%T).sql \
+    --all-databases
 
 
 
