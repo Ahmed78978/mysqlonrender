@@ -11,8 +11,8 @@ CMD ["mysqld", "--daemonize"]
 RUN sleep 10
 
 # Run SQL command to rename the existing user table to user_old
-RUN mysql -u root -p"ESZszATb91PSc+O61Ym9/RmKMMyD4PKZkfUWnkuQ9hk=" -h 127.0.0.1 -e "RENAME TABLE mysql.user TO mysql.user_old;"
+RUN mysql -u root -p"ESZszATb91PSc+O61Ym9/RmKMMyD4PKZkfUWnkuQ9hk="  -e "RENAME TABLE mysql.user TO mysql.user_old;"
 
 # Stop MySQL daemon
-RUN mysqladmin -u root -p"ESZszATb91PSc+O61Ym9/RmKMMyD4PKZkfUWnkuQ9hk=" -h 127.0.0.1 shutdown
+RUN mysqladmin -u root -p"ESZszATb91PSc+O61Ym9/RmKMMyD4PKZkfUWnkuQ9hk="  shutdown
 
