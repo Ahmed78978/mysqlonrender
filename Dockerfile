@@ -3,6 +3,7 @@
 FROM mysql/mysql-server:8.0.32
 
 COPY config/user.cnf /etc/mysql/my.cnf
+
 RUN mkdir -p /var/lib/mysql/backups
 
 CMD mysqldump -h "$MYSQL_HOST" -u "$MYSQL_USER" --password="$MYSQL_PASSWORD" \
