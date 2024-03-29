@@ -10,7 +10,7 @@ RUN mkdir -p /var/lib/mysql/backups
 
 CMD mysqldump -h "$MYSQL_HOST" -u "$MYSQL_USER" --password="$MYSQL_PASSWORD" \
     --single-transaction \
-    --result-file=/var/lib/mysql/backups/backup.$(date +%F.%T).sql \
+    --result-file=backup.$(date +%F.%T).sql \
     --all-databases
 
    
