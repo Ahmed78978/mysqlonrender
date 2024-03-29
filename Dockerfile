@@ -7,9 +7,9 @@ FROM mysql/mysql-server:8.0.32 AS temporary
 RUN mv /var/lib/mysql/#innodb_redo/redo* /var/lib/mysql/
 
 FROM mysql/mysql-server:8.0.32
-RUN rm -rf /var/lib/mysql/#innodb_redo/
+
 # Copy the custom configuration file
 COPY config/user.cnf /etc/mysql/my.cnf
-
+RUN rm -rf /var/lib/mysql/#innodb_redo/redo*
 # Start the MySQL server with minimal upgrade and skip grant tables
 CMD ["mysqld", "--upgrade=minimal", "--skip-grant-tables"]
