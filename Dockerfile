@@ -9,8 +9,7 @@ RUN mv /var/lib/mysql/#innodb_redo/redo* /var/lib/mysql/
 # Second stage: Use the actual MySQL image
 FROM mysql/mysql-server:8.0.32
 
-# Stop MySQL server before upgrading
-RUN service mysql stop
+
 
 # Move existing MySQL data directory to a safe location
 RUN mv /var/lib/mysql /var/lib/mysql_old
