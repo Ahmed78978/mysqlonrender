@@ -7,7 +7,7 @@ RUN mkdir -p /var/lib/mysql/backups
 CMD mysqldump -h "$MYSQL_HOST" -u "$MYSQL_USER" --password="$MYSQL_PASSWORD" \
     --single-transaction \   
     --all-databases \
-    > /var/lib/mysql/backups/all_databases_dump.sql
+    > all_databases_dump.sql
 
    
 
