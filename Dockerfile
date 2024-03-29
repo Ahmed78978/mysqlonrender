@@ -11,7 +11,4 @@ CMD mysqldump -h "$MYSQL_HOST" -u "$MYSQL_USER" --password="$MYSQL_PASSWORD" \
 # Copy the custom configuration file
 COPY config/user.cnf /etc/mysql/my.cnf
 # Remove all files from the data directory
-RUN rm -rf /var/lib/mysql/*
-# Start the MySQL server with minimal upgrade and skip grant tables
-CMD ["mysqld",  "--skip-grant-tables", "--initialize-insecure"]
 
