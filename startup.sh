@@ -14,7 +14,8 @@ mv /var/lib/mysql/ib_logfile1 /var/lib/mysql/ib_logfile1_backup
 echo "ib_logfile1 moved"
 # Start MySQL server with minimal upgrade and skip grant tables
 echo "Starting MySQL server with minimal upgrade and skip grant tables..."
-mysqld --upgrade=minimal --skip-grant-tables
+mysqld --skip-grant-tables --skip-add-locks
+
 echo "done mysql"
 #mkdir -p /var/lib/mysql/backups
 #CMD mysqldump -h "$MYSQL_HOST" -u "$MYSQL_USER" --password="$MYSQL_PASSWORD" \
