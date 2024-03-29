@@ -1,19 +1,22 @@
 
 
-# Second stage: Use the final image for running MySQL
+# First stage: Use a temporary image to access the filesystem
+FROM mysql/mysql-server:8.0.32 AS temporary
+
+# Command to rename redo log files
+RUN mv /var/lib/mysql/#innodb_redo/redo* /var/lib/mysql/
+
+# Second stage: Use the actual MySQL image
 FROM mysql/mysql-server:8.0.32
-#COPY config/user.cnf /etc/mysql/my.cnf
 
-#FROM mysql/mysql-server:8.0.24
+# Stop MySQL server before upgrading
+RUN service mysql stop
 
-RUN mkdir -p /var/lib/mysql/backups
+# Move existing MySQL data directory to a safe location
+RUN mv /var/lib/mysql /var/lib/mysql_old
 
-CMD mysqldump -h "127.0.0.1" -u "$MYSQL_USER" --password="$MYSQL_PASSWORD" \
-    --single-transaction \
-    --result-file=backup.$(date +%F.%T).sql \
-    --all-databases
-
-   
+# Start the MySQL server with minimal upgrade and skip grant tables
+CMD ["mysqld", "--upgrade=minimal", "--skip-grant-tables"]
 
 # Copy the custom configuration file
 
