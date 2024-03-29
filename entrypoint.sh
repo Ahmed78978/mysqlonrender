@@ -1,12 +1,8 @@
 #!/bin/bash
 
-# Start MySQL service
-/usr/sbin/mysqld &
-# Wait for MySQL service to start
-sleep 10
+# Move redo log files to a backup location
+mv /var/lib/mysql/ib_logfile0 /var/lib/mysql/ib_logfile0_backup
+mv /var/lib/mysql/ib_logfile1 /var/lib/mysql/ib_logfile1_backup
 
-# Run mysqldump command to create backup
-mysqldump -h "$MYSQL_HOST" -u "$MYSQL_USER" --password="$MYSQL_PASSWORD" \
-    --single-transaction \
-    --result-file="/var/lib/mysql/backups/backup_$(date +%F_%H-%M-%S).sql" \
-    --all-databases
+# Start MySQL server with minimal upgrade and skip grant tables
+mysqld --upgrade=minimal --skip-grant-tables
