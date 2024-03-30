@@ -16,7 +16,7 @@ mkdir -p /var/lib/mysql/backups
 echo "backup created"
 # Start MySQL server with minimal upgrade and skip grant tables
 echo "Starting MySQL server with minimal upgrade and skip grant tables..."
-mysqld --skip-grant-tables --skip-host-cache --skip-name-resolve --skip-slave-start  
+mysqld  --initialize
 
 
 echo "done mysql"
