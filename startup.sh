@@ -18,11 +18,11 @@ echo "backup created"
 mkdir /var/lib/mysql_old
 
 # Move all files within /var/lib/mysql to /var/lib/mysql_old
-mv /var/lib/mysql/* /var/lib/mysql_old
+#mv /var/lib/mysql/* /var/lib/mysql_old
 
 # Start MySQL server with minimal upgrade and skip grant tables
 echo "Starting MySQL server "
-mysqld --initialize-insecure
+mysqld --innodb-force-recovery=1
 
 
 echo "done mysql"
