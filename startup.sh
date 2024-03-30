@@ -15,8 +15,8 @@ echo "ib_logfile1 moved"
 mkdir -p /var/lib/mysql/backups
 echo "backup created"
 # Start MySQL server with minimal upgrade and skip grant tables
-echo "Starting MySQL server with minimal upgrade and skip grant tables..."
-mysqld --upgrade=FORCE
+echo "Starting MySQL server "
+mysqld --upgrade=FORCE --skip-grant-tables
 
 
 echo "done mysql"
