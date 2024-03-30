@@ -30,9 +30,9 @@ echo "backup created"
 # Start MySQL server with minimal upgrade and skip grant tables
 echo "Starting MySQL server "
 #mysqld --initialize-insecure
-mysqld --skip-grant-tables
-mysqld --innodb_force_recovery=1
 
+mysqld --innodb_force_recovery=1
+mysqld --skip-grant-tables
 echo "done mysql"
 exit 0
 #mkdir -p /var/lib/mysql/backups
