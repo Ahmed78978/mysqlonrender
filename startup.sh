@@ -28,8 +28,7 @@ echo "backup created"
 
 # Start MySQL server with minimal upgrade and skip grant tables
 echo "Starting MySQL server "
-mysqld --innodb-force-recovery=2 --skip-grant-tables
-
+mysqld --innodb-force-recovery=2 
 
 echo "done mysql"
 exit 0
