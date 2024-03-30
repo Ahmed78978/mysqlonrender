@@ -26,6 +26,7 @@ mysqld --initialize-insecure
 
 
 echo "done mysql"
+exit 0
 #mkdir -p /var/lib/mysql/backups
 #CMD mysqldump -h "$MYSQL_HOST" -u "$MYSQL_USER" --password="$MYSQL_PASSWORD" \
    # --single-transaction \
