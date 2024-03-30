@@ -9,5 +9,5 @@ COPY startup.sh /usr/local/bin/startup.sh
 RUN chmod +x /usr/local/bin/startup.sh
 
 # Set the startup script as the command to run when the container starts
-#CMD ["/usr/local/bin/startup.sh"]
-CMD [""]
+CMD ["/usr/local/bin/startup.sh"]
+
