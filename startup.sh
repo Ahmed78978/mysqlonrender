@@ -29,7 +29,7 @@ echo "backup created"
 
 # Start MySQL server with minimal upgrade and skip grant tables
 echo "Starting MySQL server "
-mysqld --innodb_force_recovery=1 --initialize-insecure
+mysqld  --initialize-insecure
 
 echo "done mysql"
 exit 0
