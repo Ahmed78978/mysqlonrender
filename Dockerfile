@@ -3,6 +3,9 @@
 # Second stage: Use the actual MySQL image
 
 
-FROM mysql/mysql-server:8.0.24
-
-COPY config/user.cnf /etc/mysql/my.cnf
+mysql -u root -p ESZszATb91PSc+O61Ym9/RmKMMyD4PKZkfUWnkuQ9hk=
+use mysql;
+alter table mysql.user drop column default_role;
+alter table mysql.user drop column max_statement_time;
+alter table mysql.user drop column password_expired;
+quit
