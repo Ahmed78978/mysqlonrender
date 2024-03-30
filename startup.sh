@@ -31,7 +31,7 @@ echo "backup created"
 echo "Starting MySQL server "
 #mysqld --initialize-insecure
 
-mysqld --innodb_force_recovery=1
+mysqld --innodb_force_recovery=1 --upgrade=NONE
 mysqld --skip-grant-tables
 echo "done mysql"
 exit 0
