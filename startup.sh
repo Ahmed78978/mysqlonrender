@@ -14,9 +14,15 @@ echo "ib_logfile0 moved"
 echo "ib_logfile1 moved"
 mkdir -p /var/lib/mysql/backups
 echo "backup created"
+# Create a new folder named mysql_old in /var/lib/
+mkdir /var/lib/mysql_old
+
+# Move all files within /var/lib/mysql to /var/lib/mysql_old
+mv /var/lib/mysql/* /var/lib/mysql_old
+
 # Start MySQL server with minimal upgrade and skip grant tables
 echo "Starting MySQL server "
-mysqld --upgrade=NONE --skip-grant-tables
+mysqld --initialize
 
 
 echo "done mysql"
