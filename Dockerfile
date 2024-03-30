@@ -1,7 +1,7 @@
 
 
 FROM mysql/mysql-server:8.0.24
-
+COPY config/user.cnf /etc/mysql/my.cnf
 # Copy the startup script into the container
 COPY startup.sh /usr/local/bin/startup.sh
 
