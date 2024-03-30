@@ -2,7 +2,6 @@
 
 FROM mysql/mysql-server:8.0.24
 
-RUN yum install -y zip
 # Copy the startup script into the container
 COPY startup.sh /usr/local/bin/startup.sh
 
