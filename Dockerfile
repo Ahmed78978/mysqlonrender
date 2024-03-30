@@ -1,11 +1,12 @@
 
 
-# Second stage: Use the actual MySQL image
+FROM mysql/mysql-server:8.0.24
 
+# Copy the startup script into the container
+COPY startup.sh /usr/local/bin/startup.sh
 
-mysql -u root -p ESZszATb91PSc+O61Ym9/RmKMMyD4PKZkfUWnkuQ9hk=
-use mysql;
-alter table mysql.user drop column default_role;
-alter table mysql.user drop column max_statement_time;
-alter table mysql.user drop column password_expired;
-quit
+# Make the script executable
+RUN chmod +x /usr/local/bin/startup.sh
+
+# Set the startup script as the command to run when the container starts
+CMD ["/usr/local/bin/startup.sh"]
