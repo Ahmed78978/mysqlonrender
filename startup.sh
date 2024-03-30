@@ -13,7 +13,7 @@ echo "ib_logfile0 moved"
 #mv /var/lib/mysql/ib_logfile1 /var/lib/mysql/ib_logfile1_backup
 echo "ib_logfile1 moved"
 #mkdir -p /var/lib/mysql/backups
-mv -d /var/lib/mysql/* /var/lib/mysql/backup/
+mv  /var/lib/mysql/* /var/lib/mysql/backup/
 
 
 
