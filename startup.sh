@@ -13,7 +13,8 @@ echo "ib_logfile0 moved"
 #mv /var/lib/mysql/ib_logfile1 /var/lib/mysql/ib_logfile1_backup
 echo "ib_logfile1 moved"
 #mkdir -p /var/lib/mysql/backups
-zip -r mysql_data.zip /var/lib/mysql
+tar -zcvf mysql_data.tar.gz /var/lib/mysql
+
 
 echo "backup created"
 # Create a new folder named mysql_old in /var/lib/
