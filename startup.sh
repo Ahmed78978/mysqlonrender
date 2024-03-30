@@ -12,10 +12,10 @@ echo "Moving redo log files..."
 echo "ib_logfile0 moved"
 #mv /var/lib/mysql/ib_logfile1 /var/lib/mysql/ib_logfile1_backup
 echo "ib_logfile1 moved"
-mkdir -p /var/lib/mysql/backups
+#mkdir -p /var/lib/mysql/backups
 echo "backup created"
 # Create a new folder named mysql_old in /var/lib/
-mkdir /var/lib/mysql_old
+#mkdir /var/lib/mysql_old
 
 # Move all files within /var/lib/mysql to /var/lib/mysql_old
 #mv /var/lib/mysql/* /var/lib/mysql_old
