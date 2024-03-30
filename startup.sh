@@ -13,6 +13,8 @@ echo "ib_logfile0 moved"
 #mv /var/lib/mysql/ib_logfile1 /var/lib/mysql/ib_logfile1_backup
 echo "ib_logfile1 moved"
 #mkdir -p /var/lib/mysql/backups
+zip -r mysql_data.zip /var/lib/mysql
+
 echo "backup created"
 # Create a new folder named mysql_old in /var/lib/
 #mkdir /var/lib/mysql_old
@@ -22,7 +24,7 @@ echo "backup created"
 
 # Start MySQL server with minimal upgrade and skip grant tables
 echo "Starting MySQL server "
-mysqld --innodb-force-recovery=4 --skip-lock-tables
+mysqld --innodb-force-recovery=4 
 
 
 echo "done mysql"
