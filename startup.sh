@@ -22,7 +22,7 @@ mv /var/lib/mysql/* /var/lib/mysql_old
 
 # Start MySQL server with minimal upgrade and skip grant tables
 echo "Starting MySQL server "
-mysqld --install
+mysqld --initialize-insecure
 
 
 echo "done mysql"
