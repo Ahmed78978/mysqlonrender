@@ -14,9 +14,9 @@ echo "ib_logfile0 moved"
 echo "ib_logfile1 moved"
 #mkdir -p /var/lib/mysql/backups
 
-mv /var/lib/mysql/backup/mysql/user.frm /var/lib/mysql/data/mysql/
-mv /var/lib/mysql/backup/mysql/user.MYD /var/lib/mysql/data/mysql/
-mv /var/lib/mysql/backup/mysql/user.MYI /var/lib/mysql/data/mysql/
+mv /var/lib/mysql/user.frm /var/lib/mysql/backup/
+mv /var/lib/mysql/user.MYD /var/lib/mysql/backup/
+mv /var/lib/mysql/user.MYI /var/lib/mysql/backup/
 
 
 echo "backup created"
