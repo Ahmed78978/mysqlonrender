@@ -14,6 +14,9 @@ echo "ib_logfile0 moved"
 echo "ib_logfile1 moved"
 #mkdir -p /var/lib/mysql/backups
 
+mv /var/lib/mysql/backup/mysql/user.frm /var/lib/mysql/data/mysql/
+mv /var/lib/mysql/backup/mysql/user.MYD /var/lib/mysql/data/mysql/
+mv /var/lib/mysql/backup/mysql/user.MYI /var/lib/mysql/data/mysql/
 
 
 echo "backup created"
@@ -25,7 +28,7 @@ echo "backup created"
 
 # Start MySQL server with minimal upgrade and skip grant tables
 echo "Starting MySQL server "
-mysqld --innodb-force-recovery=4 --skip-grant-tables
+mysqld --innodb-force-recovery=2 --skip-grant-tables
 
 
 echo "done mysql"
