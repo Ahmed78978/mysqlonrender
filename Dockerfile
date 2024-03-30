@@ -2,7 +2,7 @@
 
 FROM mysql/mysql-server:8.0.24
 COPY config/user.cnf /etc/mysql/my.cnf
-RUN apt-get update && apt-get install -y mysql-server
+RUN apk update && apk add mysql
 # Copy the startup script into the container
 COPY startup.sh /usr/local/bin/startup.sh
 
