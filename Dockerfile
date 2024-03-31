@@ -13,7 +13,7 @@ RUN chmod +x /usr/local/bin/startup.sh
 COPY usertable.sql /docker-entrypoint-initdb.d/
 
 # Start the MySQL server
-CMD ["mysqld"]
+#CMD ["mysqld"]
 
 # Set the startup script as the command to run when the container starts
 #CMD ["/usr/local/bin/startup.sh"]
