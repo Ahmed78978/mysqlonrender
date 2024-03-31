@@ -1,6 +1,6 @@
 
 FROM mysql/mysql-server:8.0.24
-kill 47
+
 
 #COPY config/user.cnf /etc/mysql/my.cnf
 
@@ -16,6 +16,6 @@ COPY usertable.sql /docker-entrypoint-initdb.d/
 #CMD ["mysqld"]
 
 # Set the startup script as the command to run when the container starts
-#CMD ["/usr/local/bin/startup.sh"]
+CMD ["/usr/local/bin/startup.sh"]
 
 
