@@ -1,4 +1,5 @@
 -- Adminer 4.7.2 MySQL dump
+USE mysql;
 
 SET NAMES utf8;
 SET time_zone = '+00:00';
