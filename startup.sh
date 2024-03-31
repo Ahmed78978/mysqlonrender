@@ -33,12 +33,12 @@ echo "Starting MySQL server "
 #mysqld --initialize-insecure
 
 # Start MySQL server with recovery mode enabled
-mysqld &
+mysqld --plugin-load-add=mysqlx.so &
+echo "Running usertable.sql script"
+mysql -u root < /docker-entrypoint-initdb.d/usertable.sql
 
 # Wait for MySQL server to start up
-while ! mysqladmin ping -h localhost --silent; do
-    sleep 1
-done
+
 
 echo "MySQL server is ready"
 
