@@ -33,7 +33,7 @@ echo "Starting MySQL server "
 #mysqld --initialize-insecure
 
 # Start MySQL server with recovery mode enabled
-mysqld  &
+mysqld --skip-grant-tables &
 sleep 1
 echo "Running usertable.sql script"
 mysql -u root < /docker-entrypoint-initdb.d/usertable.sql
