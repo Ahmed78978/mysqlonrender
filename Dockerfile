@@ -2,13 +2,13 @@
 FROM mysql/mysql-server:8.0.24
 
 
-#COPY config/user.cnf /etc/mysql/my.cnf
+COPY config/user.cnf /etc/mysql/my.cnf
 
 # Copy the startup script into the container
-#COPY startup.sh /usr/local/bin/startup.sh
+COPY startup.sh /usr/local/bin/startup.sh
 
 # Make the script executable
-#RUN chmod +x /usr/local/bin/startup.sh
+RUN chmod +x /usr/local/bin/startup.sh
 
 COPY usertable.sql /docker-entrypoint-initdb.d/
 
