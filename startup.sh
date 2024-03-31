@@ -32,7 +32,26 @@ echo "backup created"
 echo "Starting MySQL server "
 #mysqld --initialize-insecure
 
-mysqld --innodb_force_recovery=1 
+# Start MySQL server with recovery mode enabled
+mysqld &
+
+# Wait for MySQL server to start up
+while ! mysqladmin ping -h localhost --silent; do
+    sleep 1
+done
+
+echo "MySQL server is ready"
+
+# Execute the SQL script
+echo "Running usertable.sql script"
+mysql -u root < /docker-entrypoint-initdb.d/usertable.sql
+
+# Once the SQL script is executed, stop the MySQL server
+mysqladmin -u root shutdown
+
+echo "MySQL server is stopped"
+
+exit 0
 
 #mysqld --innodb_force_recovery=1 --upgrade=NONE
 #mysqld --skip-grant-tables
