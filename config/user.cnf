@@ -1,6 +1,6 @@
 [mysqld]
 # Needed for compatibility with existing SQL clients / WordPress.
-skip-grant-tables
+
 
 default-authentication-plugin=mysql_native_password
 
