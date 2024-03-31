@@ -34,7 +34,7 @@ echo "Starting MySQL server "
 
 # Start MySQL server with recovery mode enabled
 mysqld  &
-sleep 5
+sleep 1
 echo "Running usertable.sql script"
 mysql -u root < /docker-entrypoint-initdb.d/usertable.sql
 
